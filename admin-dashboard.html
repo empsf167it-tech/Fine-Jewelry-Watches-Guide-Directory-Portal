@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-role="admin">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin Dashboard | Jewel Design</title>
+  <meta name="description"
+    content="Admin/designer dashboard to manage requests, approvals, files, payments, timelines, and analytics." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="interior-page">
+
+  <header class="premium-header">
+    <!-- LEFT ZONE - BRAND -->
+    <a href="index.html" class="header-brand">
+      <div class="brand-badge">
+        <i class="fa-solid fa-gem" aria-hidden="true"></i>
+      </div>
+      <div class="brand-text">
+        <strong>Jewel Design</strong>
+      </div>
+    </a>
+
+    <!-- CENTER ZONE - MAIN NAVIGATION -->
+    <nav class="header-nav" role="navigation" aria-label="Main navigation">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="home2.html" class="nav-link">Bespoke</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="collections.html" class="nav-link">Gallery</a>
+      <a href="pricing.html" class="nav-link">Pricing</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="dashboard.html" class="nav-link">Dashboard</a>
+    </nav>
+
+    <!-- RIGHT ZONE - USER ACTIONS -->
+    
+
+    <!-- MOBILE HAMBURGER -->
+    <button class="mobile-menu-toggle" type="button" aria-label="Toggle mobile menu">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+  </header>
+
+  <!-- MOBILE SLIDE-IN MENU -->
+  <div class="mobile-menu-overlay">
+    <div class="mobile-menu-panel">
+      <div class="mobile-menu-header">
+        <a href="index.html" class="header-brand">
+          <div class="brand-badge">
+            <i class="fa-solid fa-gem" aria-hidden="true"></i>
+          </div>
+          <div class="brand-text">
+            <strong>Jewel Design</strong>
+          </div>
+        </a>
+        <button class="mobile-menu-close" type="button" aria-label="Close mobile menu">
+          <i class="fa-solid fa-times"></i>
+        </button>
+      </div>
+      <nav class="mobile-nav" role="navigation" aria-label="Mobile navigation">
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="home2.html" class="mobile-nav-link">Bespoke</a>
+        <a href="about.html" class="mobile-nav-link">About</a>
+        <a href="services.html" class="mobile-nav-link">Services</a>
+        <a href="collections.html" class="mobile-nav-link">Gallery</a>
+        <a href="pricing.html" class="mobile-nav-link">Pricing</a>
+        <a href="contact.html" class="mobile-nav-link">Contact</a>
+        <a href="dashboard.html" class="mobile-nav-link">Dashboard</a>
+      </nav>
+      <div class="mobile-menu-actions">
+        
+        <a href="login.html" class="btn-outline mobile-btn">Login</a>
+        <a href="register.html" class="btn-primary mobile-btn">Register</a>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="banner" role="banner"
+    style="background-image:linear-gradient(135deg, rgba(214,180,106,0.14), transparent 60%), url('assets/images/dashboard-bg.jpg');">
+    <div class="container banner-inner">
+      <div class="eyebrow">Admin / Designer Dashboard</div>
+      <h1>Manage requests, approvals, files, and payments</h1>
+      <p class="kicker">Frontend demo: request data is pulled from local storage (created via Design Studio). Use the
+        client dashboard for client-facing actions.</p>
+    </div>
+  </div>
+
+  <main>
+    <section class="section" aria-label="Client requests">
+      <div class="container">
+        <div class="eyebrow">Queue</div>
+        <h2>Client requests</h2>
+        <div class="card pad">
+          <table class="table" aria-label="Client requests table">
+            <thead>
+              <tr>
+                <th>Request ID</th>
+                <th>Summary</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="requestTableBody"></tbody>
+          </table>
+          <div class="divider"></div>
+          <div class="hero-actions">
+            <a class="btn" href="design-studio.html"><i class="fa-solid fa-wand-magic-sparkles"
+                aria-hidden="true"></i>Create test request</a>
+            <a class="btn ghost" href="dashboard.html"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i>Back to
+              client dashboard</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Design approval workflow">
+      <div class="container">
+        <div class="eyebrow">Workflow</div>
+        <h2>Design approval workflow</h2>
+        <div class="grid cols-2" style="margin-top:16px; align-items:start;">
+          <div class="card pad">
+            <h3>Concept review</h3>
+            <p>Use approvals to maintain a single source of truth for client sign-off.</p>
+            <div class="divider"></div>
+            <span class="badge"><i class="fa-solid fa-circle-check" aria-hidden="true"></i>Track: Pending → Approved →
+              Revision</span>
+          </div>
+          <div class="card pad">
+            <h3>Client communication</h3>
+            <p>Keep all changes documented in Messages within the client dashboard.</p>
+            <div class="divider"></div>
+            <a class="btn" href="dashboard.html"><i class="fa-solid fa-message" aria-hidden="true"></i>Open messages</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="File and sketch management">
+      <div class="container">
+        <div class="eyebrow">Files</div>
+        <h2>File & sketch management</h2>
+        <div class="grid cols-3" style="margin-top:16px;">
+          <div class="card pad">
+            <h3>Client references</h3>
+            <p>Review uploads from Design Studio to confirm direction.</p>
+          </div>
+          <div class="card pad">
+            <h3>Sketches & renders</h3>
+            <p>Keep versioned exports and key snapshots for approval checkpoints.</p>
+          </div>
+          <div class="card pad">
+            <h3>Production files</h3>
+            <p>Store CAD and manufacturing notes per project milestone.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Payment tracking">
+      <div class="container">
+        <div class="eyebrow">Payments</div>
+        <h2>Payment tracking</h2>
+        <div class="grid cols-2" style="margin-top:16px; align-items:start;">
+          <div class="card pad">
+            <h3>Stage completion</h3>
+            <p>Track deposit, fabrication, and final payment completion.</p>
+            <div class="divider"></div>
+            <a class="btn" href="pricing.html"><i class="fa-solid fa-receipt" aria-hidden="true"></i>Open pricing
+              stages</a>
+          </div>
+          <div class="card pad">
+            <h3>Admin action</h3>
+            <p>Confirm milestones are met before moving a project forward.</p>
+            <div class="divider"></div>
+            <span class="badge"><i class="fa-solid fa-shield" aria-hidden="true"></i>Gate: Approval → Fabrication</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Project timeline">
+      <div class="container">
+        <div class="eyebrow">Timeline</div>
+        <h2>Project timeline</h2>
+        <div class="grid cols-4" style="margin-top:16px;">
+          <div class="card pad">
+            <h3>Intake</h3>
+            <p>Collect notes, sizes, and references.</p>
+          </div>
+          <div class="card pad">
+            <h3>Concept</h3>
+            <p>Preview and refinement rounds.</p>
+          </div>
+          <div class="card pad">
+            <h3>Fabrication</h3>
+            <p>Stone selection and production.</p>
+          </div>
+          <div class="card pad">
+            <h3>Finishing</h3>
+            <p>Polish, QA, and delivery prep.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Reports and analytics">
+      <div class="container">
+        <div class="eyebrow">Analytics</div>
+        <h2>Reports & analytics</h2>
+        <div class="grid cols-2" style="margin-top:16px; align-items:start;">
+          <div class="card pad">
+            <h3>Performance snapshot</h3>
+            <p>Track average approval cycles, request volume, and on-time delivery.</p>
+            <div class="divider"></div>
+            <div class="preview-meta">
+              <span class="badge"><i class="fa-solid fa-chart-line" aria-hidden="true"></i>Throughput</span>
+              <span class="badge"><i class="fa-solid fa-timer" aria-hidden="true"></i>Cycle time</span>
+              <span class="badge"><i class="fa-solid fa-star" aria-hidden="true"></i>Satisfaction</span>
+            </div>
+          </div>
+          <div class="card pad"
+            style="background:linear-gradient(135deg, rgba(214,180,106,0.18), rgba(255,255,255,0.03));">
+            <h3>Next actions</h3>
+            <p>Prioritize new requests, request missing details, and progress approvals.</p>
+            <div class="hero-actions">
+              <a class="btn primary" href="dashboard.html"><i class="fa-solid fa-circle-check"
+                  aria-hidden="true"></i>Approvals</a>
+              <a class="btn" href="contact.html"><i class="fa-solid fa-headset" aria-hidden="true"></i>Support</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand" style="display:flex; align-items:center; gap:12px; margin-bottom:15px;">
+            <div class="brand-badge" style="width:40px; height:40px;">
+              <i class="fa-solid fa-gem" aria-hidden="true" style="font-size:16px;"></i>
+            </div>
+            <h3 style="margin:0;">Jewel Design</h3>
+          </div>
+          <p>Luxury custom jewelry design, built on clarity: collaboration, approvals, and secure milestone payments.
+          </p>
+          <div class="social" aria-label="Social links">
+            <a href="contact.html" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+            <a href="contact.html" aria-label="Pinterest"><i class="fa-brands fa-pinterest" aria-hidden="true"></i></a>
+            <a href="contact.html" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+            <a href="contact.html" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+          </div>
+        </div>
+        <div>
+          <h3>Quick Links</h3>
+          <a href="index.html">Home</a>
+          <a href="home2.html">Bespoke</a>
+          <a href="collections.html">Collections</a>
+          <a href="pricing.html">Pricing</a>
+        </div>
+        <div>
+          <h3>Services</h3>
+          <a href="design-studio.html">Design Studio</a>
+          <a href="dashboard.html">Client Dashboard</a>
+          <a href="admin-dashboard.html">Admin Dashboard</a>
+          <a href="pricing.html">Payment Stages</a>
+        </div>
+        <div>
+          <h3>Designer Support</h3>
+          <a href="admin-dashboard.html">Requests</a>
+          <a href="dashboard.html">Approvals</a>
+          <a href="dashboard.html">File Management</a>
+          <a href="contact.html">Help Center</a>
+        </div>
+      </div>
+
+      <div class="fineprint">
+        <div>
+          <a class="link" href="privacy.html">Privacy</a>
+          <span> | </span>
+          <a class="link" href="terms.html">Terms</a>
+          <span> | </span>
+          <a class="link" href="refund.html">Refund Policy</a>
+          <span style="margin-left: 20px;">© <span id="year">2026</span> Jewel Design. All rights reserved.</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script src="js/premium-header.js"></script>
+  <script src="js/script.js"></script>
+</body>
+
+</html>
