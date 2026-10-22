@@ -1704,25 +1704,33 @@ html[data-theme="dark"] .theme-toggle i.fa-sun {
 
 @media (max-width: 1024px) {
   .footer .footer-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 30px;
   }
 }
 
 @media (max-width: 768px) {
   .footer .footer-grid {
-    grid-template-columns: 1fr;
-    text-align: center;
+    grid-template-columns: repeat(2, 1fr);
+    text-align: left;
+    gap: 30px;
   }
 
   .footer .footer-brand {
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   .footer .social {
-    justify-content: center;
+    justify-content: flex-start !important;
   }
+}
 
+@media (max-width: 480px) {
+  .footer .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: left;
+    gap: 28px;
+  }
 }
 
 .footer h3 {
@@ -1757,7 +1765,7 @@ html[data-theme="dark"] .theme-toggle i.fa-sun {
   gap: 12px;
   flex-wrap: wrap;
   margin-top: 20px;
-  justify-content: center;
+  justify-content: flex-start !important;
   align-items: center;
 }
 
@@ -3062,4 +3070,298 @@ html[data-role="admin"] .client-only {
   .necklaces-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* ==========================================
+   BACK TO TOP BUTTON
+   ========================================== */
+.back-to-top {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--gold);
+  border: 1.5px solid var(--gold);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(10px);
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: linear-gradient(135deg, var(--gold), var(--gold-2));
+  color: #121214;
+  border-color: var(--gold);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(214, 180, 106, 0.45);
+}
+
+.back-to-top:active {
+  transform: translateY(-1px) scale(0.96);
+}
+
+/* ==========================================
+   PASSWORD FIELD EYE TOGGLE
+   ========================================== */
+.password-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.password-input-wrapper input {
+  width: 100%;
+  padding-right: 44px !important;
+}
+
+.password-toggle-btn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 6px;
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s var(--ease);
+  z-index: 2;
+}
+
+.password-toggle-btn:hover {
+  color: var(--gold);
+}
+
+.password-toggle-btn:focus {
+  outline: none;
+  color: var(--gold);
+}
+
+/* ==========================================
+   HOME PAGE FIXES
+   ========================================== */
+/* Spacing between number badge icon and text */
+.process-step .badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  margin-bottom: 16px;
+  padding: 6px 14px;
+}
+
+.process-step .badge i {
+  margin-right: 6px;
+}
+
+/* Materials chosen for brilliance section center alignment */
+.materials-section .card.pad,
+.materials-grid .card.pad,
+section[aria-label="Materials and craftsmanship"] .card.pad {
+  text-align: center !important;
+}
+
+section[aria-label="Materials and craftsmanship"] .card.pad h3,
+section[aria-label="Materials and craftsmanship"] .card.pad p {
+  text-align: center !important;
+}
+
+/* ==========================================
+   HOME 2 PAGE: BESPOKE CLIENT TESTIMONIALS
+   ========================================== */
+.bespoke-testimonial-card {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  height: 100% !important;
+  text-align: center !important;
+}
+
+.bespoke-testimonial-card .testimonial-quote {
+  flex: 1 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80px;
+  margin-bottom: 16px;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.bespoke-testimonial-card .divider {
+  margin: 16px 0 !important;
+  width: 100%;
+}
+
+.bespoke-client-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+}
+
+.bespoke-client-avatar {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--gold);
+  margin-bottom: 10px;
+  box-shadow: 0 4px 14px rgba(214, 180, 106, 0.25);
+}
+
+.bespoke-client-profile strong {
+  display: block;
+  font-size: 1.05rem;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.bespoke-client-profile .helper {
+  color: var(--gold);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ==========================================
+   PRICING PAGE: CENTER ALIGNED TIERS
+   ========================================== */
+.pricing-tiers .pricing-tier,
+.pricing-tier {
+  text-align: center !important;
+  align-items: center !important;
+}
+
+.pricing-tier .tier-name,
+.pricing-tier .tier-description,
+.pricing-tier .tier-price,
+.pricing-tier .tier-features {
+  text-align: center !important;
+  width: 100% !important;
+}
+
+.pricing-tier .tier-features > div {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  width: 100% !important;
+}
+
+/* ==========================================
+   ABOUT PAGE: VISIONARIES ONE-BY-ONE MOBILE
+   ========================================== */
+@media (max-width: 576px) {
+  .visionaries-grid,
+  section[aria-label="Family leadership"] .grid.cols-4 {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+}
+
+/* ==========================================
+   SERVICES PAGE FIXES (TABLET 768px & GENERAL)
+   ========================================== */
+/* Scoped to prevent hero preview-meta collision */
+.card .preview-meta,
+.craftsmanship-card .preview-meta,
+.service-card .preview-meta {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  margin-bottom: 16px !important;
+  padding: 0 !important;
+}
+
+.card .preview-meta .badge,
+.craftsmanship-card .preview-meta .badge,
+.service-card .preview-meta .badge {
+  width: auto !important;
+  margin: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+/* Unparalleled craftsmanship services image height increase */
+.craftsmanship-media {
+  height: 240px !important;
+  min-height: 240px !important;
+  width: 100% !important;
+  border-radius: 14px;
+  background-size: cover !important;
+  background-position: center !important;
+  margin-bottom: 16px !important;
+}
+
+@media (max-width: 1024px) {
+  .craftsmanship-media {
+    height: 260px !important;
+    min-height: 260px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .craftsmanship-media {
+    height: 280px !important;
+    min-height: 280px !important;
+  }
+}
+
+/* Curated expertise across categories card alignment */
+.expertise-card {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+}
+
+.expertise-card .media {
+  height: 240px !important;
+  min-height: 240px !important;
+}
+
+.expertise-card .card-header {
+  flex: 1 0 auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.expertise-card .card-header h3 {
+  min-height: 28px;
+  margin-bottom: 8px;
+}
+
+.expertise-card .card-header p {
+  flex: 1;
+  margin-bottom: 12px;
+}
+
+.expertise-card .card-footer {
+  margin-top: auto !important;
 }

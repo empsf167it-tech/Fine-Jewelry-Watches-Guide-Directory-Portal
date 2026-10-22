@@ -61,11 +61,21 @@
           <div class="split">
             <div class="field">
               <label for="rPass">Password</label>
-              <input id="rPass" type="password" required placeholder="••••••••" />
+              <div class="password-input-wrapper">
+                <input id="rPass" type="password" required placeholder="••••••••" />
+                <button type="button" class="password-toggle-btn" aria-label="Show password">
+                  <i class="fa-regular fa-eye"></i>
+                </button>
+              </div>
             </div>
             <div class="field">
               <label for="rPass2">Confirm password</label>
-              <input id="rPass2" type="password" required placeholder="••••••••" />
+              <div class="password-input-wrapper">
+                <input id="rPass2" type="password" required placeholder="••••••••" />
+                <button type="button" class="password-toggle-btn" aria-label="Show password">
+                  <i class="fa-regular fa-eye"></i>
+                </button>
+              </div>
             </div>
           </div>
           <div class="checkbox-group">
@@ -109,6 +119,9 @@
     </div>
   </div>
 
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" title="Back to top">
+    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+  </button>
   <script src="js/premium-header.js"></script>
   <script src="js/script.js"></script>
 </body>

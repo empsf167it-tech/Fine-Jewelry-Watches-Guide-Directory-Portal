@@ -801,7 +801,14 @@ html[data-theme="dark"] .theme-toggle i.fa-sun {
   }
   
   .design-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .design-image {
+    height: 260px;
+    background-size: cover !important;
+    background-position: center !important;
   }
   
   .approval-card {
@@ -820,6 +827,67 @@ html[data-theme="dark"] .theme-toggle i.fa-sun {
   
   .payment-table {
     overflow-x: auto;
+  }
+}
+
+@media (max-width: 540px) {
+  .design-grid {
+    grid-template-columns: 1fr;
+  }
+  .design-image {
+    height: 240px;
+  }
+}
+
+/* Sidebar Theme Toggle Button */
+.sidebar .nav-item.theme-toggle {
+  background: transparent;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  color: var(--muted);
+  transition: all 0.2s var(--ease);
+}
+
+.sidebar .nav-item.theme-toggle:hover {
+  background: var(--surface-2);
+  color: var(--gold);
+}
+
+.theme-toggle-fixed {
+  display: none;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1001;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem;
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.2s var(--ease);
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle-fixed:hover {
+  background: var(--surface-2);
+  color: var(--gold);
+}
+
+@media (max-width: 768px) {
+  .theme-toggle-fixed {
+    display: inline-flex;
   }
 }
 

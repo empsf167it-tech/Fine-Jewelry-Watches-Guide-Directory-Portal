@@ -564,6 +564,66 @@
     render();
   }
 
+  function initBackToTop() {
+    var btn = $('#backToTop');
+    if (!btn) {
+      btn = document.createElement('button');
+      btn.id = 'backToTop';
+      btn.className = 'back-to-top';
+      btn.setAttribute('aria-label', 'Back to top');
+      btn.setAttribute('title', 'Back to top');
+      btn.innerHTML = '<i class="fa-solid fa-arrow-up" aria-hidden="true"></i>';
+      document.body.appendChild(btn);
+    }
+
+    function toggleVisibility() {
+      if (window.scrollY > 300) {
+        btn.classList.add('visible');
+      } else {
+        btn.classList.remove('visible');
+      }
+    }
+
+    window.addEventListener('scroll', toggleVisibility, { passive: true });
+    toggleVisibility();
+
+    btn.addEventListener('click', function () {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
+
+  function initPasswordToggle() {
+    document.addEventListener('click', function (e) {
+      var btn = e.target.closest('.password-toggle-btn');
+      if (!btn) return;
+      e.preventDefault();
+      var wrapper = btn.closest('.password-input-wrapper');
+      if (!wrapper) return;
+      var input = wrapper.querySelector('input');
+      if (!input) return;
+
+      var icon = btn.querySelector('i');
+      if (input.type === 'password') {
+        input.type = 'text';
+        btn.setAttribute('aria-label', 'Hide password');
+        if (icon) {
+          icon.classList.remove('fa-eye');
+          icon.classList.add('fa-eye-slash');
+        }
+      } else {
+        input.type = 'password';
+        btn.setAttribute('aria-label', 'Show password');
+        if (icon) {
+          icon.classList.remove('fa-eye-slash');
+          icon.classList.add('fa-eye');
+        }
+      }
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     window.toast = toast;
 
@@ -581,5 +641,9 @@
     initRequestsTable();
     initRoleSwitch();
     initNotifications();
+
+    initBackToTop();
+    initPasswordToggle();
   });
 })();
+

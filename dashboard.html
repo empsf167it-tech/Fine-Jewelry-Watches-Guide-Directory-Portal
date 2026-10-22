@@ -20,9 +20,12 @@
 
 <body class="interior-page">
 
-  <!-- Mobile Sidebar Toggle -->
-  <button class="sidebar-toggle-fixed" id="mobileDashToggle">
+  <!-- Mobile Sidebar & Theme Toggle -->
+  <button class="sidebar-toggle-fixed" id="mobileDashToggle" aria-label="Toggle sidebar menu">
     <i class="fa-solid fa-bars"></i>
+  </button>
+  <button class="theme-toggle-fixed theme-toggle" id="dashThemeToggleTop" aria-label="Toggle theme">
+    <i class="fa-solid fa-sun" aria-hidden="true"></i>
   </button>
   <div class="sidebar-overlay" id="dashOverlay"></div>
 
@@ -78,7 +81,9 @@
               <span>Notifications</span>
             </a>
             <div class="sidebar-divider"></div>
-            
+            <button class="nav-item theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
+              <i class="fa-solid fa-sun" aria-hidden="true"></i>
+              <span>Theme Mode</span>
             </button>
             <a href="index.html" class="nav-item">
               <i class="fa-solid fa-right-from-bracket"></i>
@@ -499,6 +504,9 @@
     </div>
   </main>
 
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" title="Back to top">
+    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+  </button>
   <script src="js/premium-header.js"></script>
   <script src="js/script.js"></script>
   <script src="js/dashboard.js"></script>

@@ -202,37 +202,37 @@ function updateContentForRole(isDesigner) {
 }
 
 function initThemeToggle() {
-  const themeToggle = document.getElementById('themeToggle');
+  const themeToggles = document.querySelectorAll('.theme-toggle, #themeToggle');
   const htmlElement = document.documentElement;
 
-  if (themeToggle) {
-    themeToggle.addEventListener('click', function () {
-      const currentTheme = htmlElement.getAttribute('data-theme');
+  function updateIcons(theme) {
+    themeToggles.forEach(btn => {
+      const icon = btn.querySelector('i');
+      if (icon) {
+        icon.className = theme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+      }
+    });
+  }
+
+  // Load saved theme
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  htmlElement.setAttribute('data-theme', savedTheme);
+  updateIcons(savedTheme);
+
+  themeToggles.forEach(btn => {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      const currentTheme = htmlElement.getAttribute('data-theme') || 'dark';
       const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
 
       // Update theme
       htmlElement.setAttribute('data-theme', newTheme);
-
-      // Update icon
-      const icon = this.querySelector('i');
-      if (icon) {
-        icon.className = newTheme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
-      }
+      updateIcons(newTheme);
 
       // Save preference to localStorage
       localStorage.setItem('theme', newTheme);
     });
-
-    // Load saved theme
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    htmlElement.setAttribute('data-theme', savedTheme);
-
-    // Update icon based on saved theme
-    const icon = themeToggle.querySelector('i');
-    if (icon) {
-      icon.className = savedTheme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
-    }
-  }
+  });
 }
 
 function initInteractiveElements() {
