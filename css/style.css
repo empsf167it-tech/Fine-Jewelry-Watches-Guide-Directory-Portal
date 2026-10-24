@@ -3249,28 +3249,178 @@ section[aria-label="Materials and craftsmanship"] .card.pad p {
 }
 
 /* ==========================================
-   PRICING PAGE: CENTER ALIGNED TIERS
+   PRICING PAGE: HORIZONTAL ALIGNMENT ACROSS ALL BREAKPOINTS
    ========================================== */
-.pricing-tiers .pricing-tier,
+.pricing-tiers {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 32px !important;
+  max-width: 1080px !important;
+  margin: 48px auto 0 !important;
+  align-items: stretch !important;
+}
+
+@media (max-width: 1024px) {
+  .pricing-tiers {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 20px !important;
+  }
+}
+
+@media (max-width: 860px) {
+  .pricing-tiers {
+    grid-template-columns: 1fr !important;
+    max-width: 480px !important;
+    gap: 24px !important;
+  }
+}
+
 .pricing-tier {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  height: 100% !important;
+  padding: 32px 24px 28px !important;
+  border-radius: var(--radius) !important;
+  background: var(--surface) !important;
+  border: 1.5px solid var(--border) !important;
+  box-sizing: border-box !important;
   text-align: center !important;
-  align-items: center !important;
+  position: relative !important;
+  transition: all 0.3s var(--ease) !important;
 }
 
-.pricing-tier .tier-name,
-.pricing-tier .tier-description,
-.pricing-tier .tier-price,
-.pricing-tier .tier-features {
-  text-align: center !important;
-  width: 100% !important;
+.pricing-tier.featured {
+  border-color: var(--gold) !important;
+  box-shadow: 0 10px 30px rgba(214, 180, 106, 0.18) !important;
 }
 
-.pricing-tier .tier-features > div {
+/* 1. Badge slot: Exactly 32px high in all 3 cards */
+.pricing-tier .tier-badge-slot {
+  height: 32px !important;
+  min-height: 32px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
+  margin-bottom: 12px !important;
+  width: 100% !important;
+}
+
+.pricing-tier .featured-badge-pill {
+  background: linear-gradient(135deg, var(--gold), var(--gold-2)) !important;
+  color: #121214 !important;
+  padding: 5px 16px !important;
+  border-radius: 999px !important;
+  font-size: 0.78rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.5px !important;
+  text-transform: uppercase !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+/* 2. Heading (Tier Name): Exactly 36px high in all 3 cards */
+.pricing-tier .tier-name {
+  height: 36px !important;
+  min-height: 36px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 1.45rem !important;
+  font-weight: 700 !important;
+  color: var(--text) !important;
+  margin: 0 0 10px 0 !important;
   text-align: center !important;
   width: 100% !important;
+}
+
+/* 3. Subheading (Tier Description): Exactly 48px high in all 3 cards */
+.pricing-tier .tier-description {
+  height: 48px !important;
+  min-height: 48px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: var(--muted) !important;
+  font-size: 0.92rem !important;
+  line-height: 1.45 !important;
+  margin: 0 0 18px 0 !important;
+  text-align: center !important;
+  width: 100% !important;
+}
+
+/* 4. Price (Tier Price): Exactly 52px high in all 3 cards */
+.pricing-tier .tier-price {
+  height: 52px !important;
+  min-height: 52px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 2.1rem !important;
+  font-weight: 800 !important;
+  color: var(--gold) !important;
+  margin: 0 0 24px 0 !important;
+  text-align: center !important;
+  width: 100% !important;
+}
+
+.pricing-tier .tier-price span {
+  font-size: 0.92rem !important;
+  font-weight: 400 !important;
+  color: var(--muted) !important;
+  margin-left: 6px !important;
+}
+
+/* 5. Points / Features List */
+.pricing-tier .tier-features {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+  margin: 0 0 32px 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  flex-grow: 1 !important;
+}
+
+.pricing-tier .feature-item {
+  height: 38px !important;
+  min-height: 38px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  font-size: 0.9rem !important;
+  color: var(--muted) !important;
+  text-align: center !important;
+  margin: 0 !important;
+  padding: 0 8px !important;
+  border-radius: 8px !important;
+  background: rgba(255, 255, 255, 0.02) !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+}
+
+.pricing-tier .feature-item i {
+  color: var(--gold) !important;
+  font-size: 0.85rem !important;
+  flex-shrink: 0 !important;
+}
+
+/* 6. Button Container Pinned to Bottom */
+.pricing-tier .tier-btn-wrapper {
+  margin-top: auto !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.pricing-tier .tier-btn-wrapper .btn {
+  width: 100% !important;
+  max-width: 220px !important;
+  height: 44px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 /* ==========================================
@@ -3285,7 +3435,7 @@ section[aria-label="Materials and craftsmanship"] .card.pad p {
 }
 
 /* ==========================================
-   SERVICES PAGE FIXES (TABLET 768px & GENERAL)
+   SERVICES PAGE FIXES (TABLET 768px & MOBILE 368px)
    ========================================== */
 /* Scoped to prevent hero preview-meta collision */
 .card .preview-meta,
@@ -3335,33 +3485,164 @@ section[aria-label="Materials and craftsmanship"] .card.pad p {
 }
 
 /* Curated expertise across categories card alignment */
+.expertise-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 24px !important;
+  align-items: stretch !important;
+}
+
+@media (max-width: 768px) {
+  .expertise-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .expertise-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+}
+
 .expertise-card {
   display: flex !important;
   flex-direction: column !important;
+  justify-content: space-between !important;
   height: 100% !important;
+  box-sizing: border-box !important;
+  border-radius: var(--radius) !important;
+  overflow: hidden !important;
 }
 
+/* 1. Media Image: Consistent height */
 .expertise-card .media {
   height: 240px !important;
   min-height: 240px !important;
+  width: 100% !important;
+  background-size: cover !important;
+  background-position: center !important;
+  flex-shrink: 0 !important;
+}
+
+@media (max-width: 768px) {
+  .expertise-card .media {
+    height: 220px !important;
+    min-height: 220px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .expertise-card .media {
+    height: 200px !important;
+    min-height: 200px !important;
+  }
 }
 
 .expertise-card .card-header {
   flex: 1 0 auto !important;
   display: flex !important;
   flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  padding: 24px 20px 16px !important;
 }
 
+/* 2. Heading (h3): Exact same height across cards */
 .expertise-card .card-header h3 {
-  min-height: 28px;
-  margin-bottom: 8px;
+  height: 32px !important;
+  min-height: 32px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+  margin: 0 0 10px 0 !important;
+  text-align: center !important;
+  width: 100% !important;
 }
 
+/* 3. Subheading (p): Exact same height across cards */
 .expertise-card .card-header p {
-  flex: 1;
-  margin-bottom: 12px;
+  height: 52px !important;
+  min-height: 52px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 0.92rem !important;
+  line-height: 1.45 !important;
+  color: var(--muted) !important;
+  margin: 0 0 16px 0 !important;
+  text-align: center !important;
+  width: 100% !important;
 }
 
+/* 4. Badges: Exact same height and aligned in row across cards */
+.expertise-card .expertise-badges {
+  height: 36px !important;
+  min-height: 36px !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  margin: 0 0 8px 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+}
+
+.expertise-card .expertise-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 30px !important;
+  padding: 0 14px !important;
+  border-radius: 999px !important;
+  background: rgba(214, 180, 106, 0.12) !important;
+  border: 1px solid rgba(214, 180, 106, 0.35) !important;
+  color: var(--gold) !important;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  white-space: nowrap !important;
+  width: auto !important;
+  line-height: 1 !important;
+  box-sizing: border-box !important;
+}
+
+.expertise-card .expertise-badge i {
+  margin-right: 6px !important;
+  font-size: 0.78rem !important;
+}
+
+/* 5. Card Footer: Exact same height and baseline at bottom */
 .expertise-card .card-footer {
   margin-top: auto !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 12px !important;
+  padding: 0 20px 24px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.expertise-card .card-footer .btn {
+  margin: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 42px !important;
+}
+
+@media (max-width: 480px) {
+  .expertise-card .card-footer {
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+  
+  .expertise-card .card-footer .btn {
+    width: 100% !important;
+  }
 }
